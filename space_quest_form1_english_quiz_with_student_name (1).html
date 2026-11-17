@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Space Quest | Form 1 English Quiz</title>
+<style>
+:root{--cyan:#69e5ff;--purple:#ad91ff;--green:#65e5a5;--red:#ff8294;--gold:#ffda75;--muted:#c0c9e8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:#f7f8ff;font-family:Arial,sans-serif;background:radial-gradient(circle at 15% 15%,#343c87 0,transparent 28%),radial-gradient(circle at 85% 20%,#15516d 0,transparent 24%),linear-gradient(145deg,#070b20,#121a40 60%,#080d25)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(2px 2px at 15% 20%,white 98%,transparent),radial-gradient(1px 1px at 70% 15%,white 98%,transparent),radial-gradient(1.5px 1.5px at 45% 75%,white 98%,transparent),radial-gradient(2px 2px at 90% 80%,white 98%,transparent);background-size:280px 260px}
+.wrap{width:min(880px,94%);margin:auto;padding:25px 0 40px;position:relative}
+header{text-align:center;margin-bottom:20px}.rocket{font-size:2.5rem}.eyebrow{color:var(--cyan);font-size:.76rem;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
+h1{font-size:clamp(2.2rem,7vw,3.7rem);margin:7px 0}h1 span{color:var(--cyan)}.sub{color:var(--muted);line-height:1.5;margin:0}
+.panel{background:rgba(20,30,72,.93);border:1px solid #7869bd66;border-radius:20px;padding:clamp(18px,4vw,30px);box-shadow:0 18px 55px #0005}
+.name-area{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 14px}
+.name-area label{font-weight:bold;color:#e3e8ff}
+.name-area input{flex:1;min-width:190px;padding:12px 14px;border-radius:10px;border:1px solid #7885b8;background:#0d1535;color:white;font-size:1rem}
+.name-area input:focus{outline:2px solid var(--cyan);outline-offset:2px}
+.hud{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:18px 0}
+.bar{height:10px;border-radius:20px;background:#303b6a;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));transition:width .25s}
+.small{font-size:.85rem;color:var(--muted);margin-top:7px}.score{padding:9px 13px;border-radius:30px;border:1px solid #69e5ff77;background:#69e5ff18;font-weight:bold;white-space:nowrap}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:17px}
+.tag{color:var(--cyan);background:#69e5ff18;border:1px solid #69e5ff55;padding:6px 11px;border-radius:30px;font-size:.78rem;font-weight:bold}
+.number{color:var(--muted);font-size:.88rem;font-weight:bold}
+h2{font-size:clamp(1.2rem,3.5vw,1.65rem);line-height:1.4;margin:0 0 17px}
+.passage{background:#0b1332;border-left:4px solid var(--purple);padding:15px 17px;border-radius:10px;line-height:1.65;color:#e5eaff;margin-bottom:18px}
+.passage strong{color:var(--gold)}
+.options{display:grid;gap:10px}
+.option{width:100%;text-align:left;color:white;background:#ffffff0b;border:1px solid #aebbe644;border-radius:12px;padding:13px 15px;font-size:1rem;line-height:1.4;cursor:pointer;transition:.15s}
+.option:hover:not(:disabled){border-color:var(--cyan);background:#69e5ff18;transform:translateY(-1px)}
+.option:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.option:disabled{cursor:default;opacity:1}.option.correct{border-color:var(--green);background:#65e5a51c}.option.wrong{border-color:var(--red);background:#ff82941b}
+.letter{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:8px;margin-right:9px;background:#ad91ff30;color:#e0d6ff;font-weight:bold}
+.feedback{display:none;margin-top:16px;padding:13px 15px;border-radius:11px;line-height:1.5}.feedback.show{display:block}.feedback.good{background:#65e5a51a;border:1px solid #65e5a577}.feedback.bad{background:#ff82941a;border:1px solid #ff829477}
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:21px}
+button.primary,button.secondary{border:0;border-radius:11px;padding:12px 19px;font-size:.98rem;font-weight:bold;cursor:pointer}
+.primary{background:linear-gradient(100deg,var(--cyan),#a4efff);color:#071329}.primary:disabled{opacity:.35;cursor:not-allowed}
+.secondary{background:#ffffff12;color:white;border:1px solid #ffffff44!important}
+.result{display:none;text-align:center}.result.show{display:block}.result-icon{font-size:3.7rem}.final-score{font-size:clamp(2.6rem,8vw,4rem);font-weight:900;color:var(--gold);margin:8px 0}.result p{color:var(--muted);line-height:1.6}
+.hidden{display:none!important}footer{text-align:center;color:#8996bf;font-size:.78rem;margin-top:17px}
+@media(max-width:520px){.hud{grid-template-columns:1fr}.score{justify-self:end}.controls button{flex:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="rocket" aria-hidden="true">🚀</div>
+ <div class="eyebrow">Form 1 English • Learning Mission</div>
+ <h1>SPACE <span>QUEST</span></h1>
+ <p class="sub">Explore the galaxy and complete your English mission!<br>8 Past Simple questions + 7 Reading questions</p>
+</header>
+
+<div class="name-area" id="nameArea">
+ <label for="studentName">👩‍🚀 Student name:</label>
+ <input id="studentName" type="text" maxlength="60" placeholder="Enter your name before you start">
+</div>
+
+<div class="hud" id="hud">
+ <div><div class="bar"><div class="fill" id="progress"></div></div><div class="small" id="progressText">Mission progress: 0 / 15</div></div>
+ <div class="score">⭐ Score: <span id="score">0</span> / 15</div>
+</div>
+
+<main class="panel" id="quizCard">
+ <div class="top"><span class="tag" id="category">PAST SIMPLE TENSE</span><span class="number" id="questionNumber">QUESTION 1 OF 15</span></div>
+ <h2 id="question">Loading question...</h2>
+ <div id="passageArea"></div>
+ <div class="options" id="options"></div>
+ <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+ <div class="controls"><span class="small" id="instruction">Choose the best answer.</span><button class="primary" id="nextBtn" disabled>Next question →</button></div>
+</main>
+
+<section class="panel result" id="resultCard" aria-live="polite">
+ <div class="result-icon" id="resultIcon">🏆</div>
+ <div class="eyebrow">Mission completed</div>
+ <h2 id="resultTitle">Well done, Space Explorer!</h2>
+ <p id="studentResult"></p>
+ <div class="final-score"><span id="finalScore">0</span> / 15</div>
+ <p id="resultMessage"></p>
+ <button class="primary" id="restartBtn">↻ Restart mission</button>
+</section>
+<footer>Learn • Explore • Improve | Form 1 English Space Adventure</footer>
+</div>
+
+<script>
+const questions = [
+ {type:"PAST SIMPLE TENSE",q:"Yesterday, Amir _____ to the science museum.",o:["go","goes","went","going"],a:2,e:"“Went” is the past simple form of “go”. “Yesterday” tells us the action happened in the past."},
+ {type:"PAST SIMPLE TENSE",q:"The astronauts _____ the planet last Monday.",o:["visit","visited","visits","visiting"],a:1,e:"“Visited” is the past simple form of the regular verb “visit”."},
+ {type:"PAST SIMPLE TENSE",q:"My sister _____ a beautiful picture of the Moon.",o:["draw","draws","drawing","drew"],a:3,e:"“Drew” is the past simple form of the irregular verb “draw”."},
+ {type:"PAST SIMPLE TENSE",q:"We _____ not see any stars because it was cloudy.",o:["do","does","did","were"],a:2,e:"Use “did not” + the base verb “see” to form a negative past simple sentence."},
+ {type:"PAST SIMPLE TENSE",q:"_____ you watch the space documentary last night?",o:["Do","Did","Are","Does"],a:1,e:"Use “Did” to ask a question about a completed action in the past."},
+ {type:"PAST SIMPLE TENSE",q:"The robot _____ slowly across the room yesterday.",o:["move","moves","moved","moving"],a:2,e:"“Moved” is the past simple form of “move”. Add -d to a verb ending in e."},
+ {type:"PAST SIMPLE TENSE",q:"Choose the correct sentence.",o:["They was happy.","They were happy.","They be happy.","They is happy."],a:1,e:"The past simple form of “be” used with “they” is “were”."},
+ {type:"PAST SIMPLE TENSE",q:"Sara _____ her lunch before the school trip.",o:["eat","eats","ate","eating"],a:2,e:"“Ate” is the past simple form of the irregular verb “eat”."},
+
+ {type:"READING COMPREHENSION",q:"Why did the students visit the space centre?",p:"<strong>A School Trip to Space</strong><br>Last Friday, Class 1 Bestari visited the National Space Centre. Their teacher, Mr Lee, showed them a model rocket and pictures of the planets. The students watched a short video about astronauts. Aina asked many questions because she wanted to learn more about space.",o:["To play football","To learn about space","To buy new books","To meet a singer"],a:1,e:"The students visited the centre to learn about space. They saw a model rocket, pictures of planets and a video about astronauts."},
+ {type:"READING COMPREHENSION",q:"When did Class 1 Bestari visit the space centre?",p:"<strong>A School Trip to Space</strong><br>Last Friday, Class 1 Bestari visited the National Space Centre. Their teacher, Mr Lee, showed them a model rocket and pictures of the planets. The students watched a short video about astronauts. Aina asked many questions because she wanted to learn more about space.",o:["Last Monday","Last Thursday","Last Friday","Last Sunday"],a:2,e:"The first sentence tells us that the class visited the centre last Friday."},
+ {type:"READING COMPREHENSION",q:"What did Mr Lee show the students?",p:"<strong>A School Trip to Space</strong><br>Last Friday, Class 1 Bestari visited the National Space Centre. Their teacher, Mr Lee, showed them a model rocket and pictures of the planets. The students watched a short video about astronauts. Aina asked many questions because she wanted to learn more about space.",o:["A model rocket and pictures of planets","A real spaceship and a map","A telescope and a book","A robot and a computer"],a:0,e:"The passage says Mr Lee showed the class a model rocket and pictures of the planets."},
+ {type:"READING COMPREHENSION",q:"Why did Aina ask many questions?",p:"<strong>A School Trip to Space</strong><br>Last Friday, Class 1 Bestari visited the National Space Centre. Their teacher, Mr Lee, showed them a model rocket and pictures of the planets. The students watched a short video about astronauts. Aina asked many questions because she wanted to learn more about space.",o:["She felt sleepy.","She wanted to learn more about space.","She wanted to go home.","She lost her bag."],a:1,e:"The final sentence explains that Aina asked questions because she wanted to learn more about space."},
+ {type:"READING COMPREHENSION",q:"What did the students watch?",p:"<strong>A School Trip to Space</strong><br>Last Friday, Class 1 Bestari visited the National Space Centre. Their teacher, Mr Lee, showed them a model rocket and pictures of the planets. The students watched a short video about astronauts. Aina asked many questions because she wanted to learn more about space.",o:["A cartoon about animals","A football match","A short video about astronauts","A film about cooking"],a:2,e:"The passage clearly states that the students watched a short video about astronauts."},
+ {type:"READING COMPREHENSION",q:"Who was the students’ teacher?",p:"<strong>A School Trip to Space</strong><br>Last Friday, Class 1 Bestari visited the National Space Centre. Their teacher, Mr Lee, showed them a model rocket and pictures of the planets. The students watched a short video about astronauts. Aina asked many questions because she wanted to learn more about space.",o:["Mr Tan","Mr Lee","Mr Lim","Mr Wong"],a:1,e:"The passage names Mr Lee as the students’ teacher."},
+ {type:"READING COMPREHENSION",q:"What is the best title for the passage?",p:"<strong>A School Trip to Space</strong><br>Last Friday, Class 1 Bestari visited the National Space Centre. Their teacher, Mr Lee, showed them a model rocket and pictures of the planets. The students watched a short video about astronauts. Aina asked many questions because she wanted to learn more about space.",o:["A Day at the Beach","A School Sports Day","A School Trip to Space","A Visit to the Zoo"],a:2,e:"The passage describes a class visit to the National Space Centre. “A School Trip to Space” is the best title."}
+];
+
+let current=0,score=0,answered=false;
+const $=id=>document.getElementById(id);
+function updateHUD(){
+ const done=current+(answered?1:0);
+ $("progress").style.width=(done/questions.length*100)+"%";
+ $("progressText").textContent=`Mission progress: ${done} / ${questions.length}`;
+ $("score").textContent=score;
+}
+function renderQuestion(){
+ const item=questions[current];answered=false;
+ $("category").textContent=item.type;
+ $("questionNumber").textContent=`QUESTION ${current+1} OF ${questions.length}`;
+ $("question").textContent=item.q;
+ $("passageArea").innerHTML=item.p?`<div class="passage">${item.p}</div>`:"";
+ $("options").innerHTML="";
+ $("feedback").className="feedback";$("feedback").textContent="";
+ $("instruction").textContent="Choose the best answer.";
+ $("nextBtn").disabled=true;
+ $("nextBtn").textContent=current===questions.length-1?"Finish mission 🚀":"Next question →";
+ item.o.forEach((option,index)=>{
+  const b=document.createElement("button");b.type="button";b.className="option";
+  const letter=document.createElement("span");letter.className="letter";letter.textContent=String.fromCharCode(65+index);
+  b.append(letter,document.createTextNode(option));b.addEventListener("click",()=>chooseAnswer(index));$("options").appendChild(b);
+ });
+ updateHUD();
+}
+function chooseAnswer(index){
+ if(answered)return;answered=true;
+ const item=questions[current],buttons=[...$("options").querySelectorAll("button")];
+ buttons.forEach((b,i)=>{b.disabled=true;if(i===item.a)b.classList.add("correct");if(i===index&&i!==item.a)b.classList.add("wrong");});
+ const correct=index===item.a;if(correct)score++;
+ $("feedback").className="feedback show "+(correct?"good":"bad");
+ $("feedback").innerHTML=`<strong>${correct?"✓ Correct! Well done!":"✦ Not quite. Keep learning!"}</strong><br>${item.e}`;
+ $("instruction").textContent=correct?"Great job, explorer!":"Read the explanation, then continue.";
+ $("nextBtn").disabled=false;updateHUD();
+}
+function finish(){
+ $("quizCard").classList.add("hidden");$("hud").classList.add("hidden");$("nameArea").classList.add("hidden");$("resultCard").classList.add("show");
+ const name=$("studentName").value.trim()||"Space Explorer";
+ $("studentResult").textContent=`Student: ${name}`;
+ $("finalScore").textContent=score;
+ const pct=score/questions.length*100;
+ if(pct>=80){$("resultIcon").textContent="🏆";$("resultTitle").textContent="Amazing work, "+name+"!";$("resultMessage").textContent="Excellent! You showed strong knowledge of Past Simple Tense and reading comprehension. Mission accomplished!";}
+ else if(pct>=50){$("resultIcon").textContent="🌟";$("resultTitle").textContent="Good effort, "+name+"!";$("resultMessage").textContent="You made good progress. Review the explanations and try again to improve your score.";}
+ else{$("resultIcon").textContent="🪐";$("resultTitle").textContent="Keep exploring, "+name+"!";$("resultMessage").textContent="Every attempt helps you learn. Practise past tense verbs and read each passage carefully. You can do it!";}
+}
+$("nextBtn").addEventListener("click",()=>{if(!answered)return;if(current<questions.length-1){current++;renderQuestion();}else finish();});
+$("restartBtn").addEventListener("click",()=>{
+ current=0;score=0;answered=false;$("studentName").value="";
+ $("quizCard").classList.remove("hidden");$("hud").classList.remove("hidden");$("nameArea").classList.remove("hidden");$("resultCard").classList.remove("show");
+ renderQuestion();$("studentName").focus();
+});
+renderQuestion();
+</script>
+</body>
+</html>
